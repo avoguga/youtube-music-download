@@ -32,15 +32,6 @@ def download_songs(urls):
 
     print('All files downloaded successfully!')
 
-def save_urls_to_file(urls):
-    with open('urls.txt', 'a') as f:
-        for url in urls:
-            f.write(f'{url},\n')
-
-@app.route('/')
-def hello():
-    return 'Hello!'
-
 @app.route('/post_youtube_url', methods=['POST'])
 def process_json():
     content_type = request.headers.get('Content-Type')
@@ -48,7 +39,6 @@ def process_json():
         data = request.get_json()
         urls = data.get('urls')
         if urls:
-            save_urls_to_file(urls)
             download_songs(urls)
             return 'Success!'
         else:
