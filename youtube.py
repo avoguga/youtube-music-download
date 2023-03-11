@@ -11,7 +11,7 @@ with open('urls.txt', 'r') as file:
 def download_mp3(link):
     yt = YouTube(link)
     audio = yt.streams.filter(only_audio=True).order_by('abr').desc().first()
-    destination = './MusicasPedroTexeira'
+    destination = './songs'
     print(f'Downloading {audio.title}')
     out_file = audio.download(output_path=destination)
     base, ext = os.path.splitext(out_file)
