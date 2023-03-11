@@ -1,5 +1,0 @@
-{
-    "rewrites": [
-      { "source": "/(.*)", "destination": "/download_youtube_mp3" }
-    ]
-  }
